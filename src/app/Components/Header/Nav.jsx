@@ -1,22 +1,28 @@
 "use client"; // Add this to mark the component as a Client Component
-
 import React, { useState } from "react";
 import Link from "next/link";
-// import { IoIosArrowDown } from "react-icons/io";
 import DropdownMenu from "./DropdownMenu";
-import Button from "../Button";
 const Nav = () => {
   const [isOpen, setIsOpen] = useState(true);
   const items = [
     {
       id: 0,
-      link: "one",
-      namechildern: "one",
+      link: "level1",
+      namechildern: "مرحلة التأسيس",
     },
     {
       id: 1,
-      link: "two",
-      namechildern: "two",
+      link: "level2",
+      namechildern: "مرحلة الابتدائية",
+    },
+    {
+      id: 1,
+      link: "level3",
+      namechildern: "مرحلة الإعدادية",
+    }, {
+      id: 1,
+      link: "level4",
+      namechildern: "مرحلة الثانوية",
     },
   ];
   const toggleDropdown = () => {

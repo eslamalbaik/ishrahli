@@ -19,7 +19,7 @@ const DropdownMenu = ({ nameDropdown, items }) => {
         {items?.map((item) => (
           <li key={item.id}>
             <Link
-              className="rounded-t z-10 w-52 text-base px-4 bg-[#FDF8EE] hover:bg-[#472758] hover:text-white py-2 block whitespace-no-wrap"
+              className="rounded-t z-10 w-52 text-base px-4 bg-white hover:bg-[--foreground] hover:text-white py-2 block whitespace-no-wrap"
               href={"/" + item.link}
             >
               {item.namechildern}

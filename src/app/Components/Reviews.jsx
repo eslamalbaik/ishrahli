@@ -110,10 +110,9 @@ const Reviews = () => {
             </div>
           </div>
           <div className="w-full lg:w-[60vw] max-lg:w-[100vw] overflow-hidden">
-            <h1 className="text-[24px] text-[--background] sm:text-[28px] md:text-[32px] lg:text-[30px] xl:text-[30px] font-[family-name:var(--font-Cairo-Bold)]">
+            <h1 className="text-[24px] text-[--background] sm:text-[28px] md:text-[28px] lg:text-[28px] xl:text-[28px] font-[family-name:var(--font-Cairo-Bold)]">
             انضم إلى العديد من الطلاب الذين يستفيدون من المحتوى التعليمي   
             </h1>
-
             <Carousel
               responsive={responsive}
               infinite={true}

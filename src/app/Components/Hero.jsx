@@ -1,5 +1,4 @@
-"use client"; // Add this line at the top of the file
-import React,{useEffect} from 'react'
+import React from 'react'
 import Image from 'next/image'
 import dynamic from 'next/dynamic';
 const Button=dynamic(()=>import('./Button'))

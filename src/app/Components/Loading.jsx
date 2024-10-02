@@ -1,7 +1,7 @@
 
 const Loading = () => {
   return (
-      <div role="status" className="p-12 m-24 w-[1200px] flex justify-center items-center">
+      <div role="status" className="p-12 m-48 w-[1200px] flex justify-center items-center">
         <svg
            aria-hidden="true"
           className="w-[100px] h-[100px] text-gray-200 animate-spin  fill-[--foreground]"

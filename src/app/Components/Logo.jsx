@@ -1,15 +1,16 @@
-import Image from 'next/image'
-const Logo = () => {
+import Image from "next/image";
+
+const Logo = ({classNameAdd}) => {
   return (
     <Image
-    src="/images/logo.png"
-    width={140}
-    height={100}
-    className="md:h-[100px] max-sm:h-[55px] max-sm:w-[80px]"
-    alt="logo"
-    priority 
-  />
-  )
-}
+      src="/images/logo.png"
+      width={120}
+      height={100} 
+      className={`2xl:ml-52 md:max-w-[180px]  max-sm:h-[85px] max-sm:w-[120px] ${classNameAdd}`}
+      alt="logo"
+      priority
+    />
+  );
+};
 
-export default Logo
+export default Logo;

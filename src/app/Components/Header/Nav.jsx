@@ -2,8 +2,11 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import DropdownMenu from "./DropdownMenu";
+import { TiLockClosedMini, TiShoppingCartMini } from "@/app/lib/@react-icons";
+import Button from "../Button/Button";
+import ButtonOutline from "../Button/ButtonOutline";
+
 const Nav = () => {
-  const [isOpen, setIsOpen] = useState(true);
   const items = [
     {
       id: 0,
@@ -16,58 +19,69 @@ const Nav = () => {
       namechildern: "مرحلة الابتدائية",
     },
     {
-      id: 1,
+      id: 2, // Fixed the duplicate ID
       link: "level3",
       namechildern: "مرحلة الإعدادية",
-    }, {
-      id: 1,
+    },
+    {
+      id: 3, // Fixed the duplicate ID
       link: "level4",
       namechildern: "مرحلة الثانوية",
     },
   ];
-  const toggleDropdown = () => {
-    setIsOpen(!isOpen);
-  };
+
   return (
-    <nav className="hidden font-[family-name:var(--font-IBMPlexSans-Medium)]  min-[1020px]:flex   h-[100px] w-fit  lg:gap-52">
-      <ul className="text-[--background]  lg:flex space-x-6 items-center text-[20px] leading-6 font-normal lg:mr-32">
-        <li className=" cursor-pointer font-[family-name:var(--font-IBMPlexSans-Medium)]  hover:text-[--foreground]  ">
-          <Link
-            className="ml-6 relative block  lg:px-2    "
-            href="/"
-          >
+    <div className="hidden h-[100px] w-fit min-[1200px]:flex">
+      <ul className="text-[--background] flex space-x-4 md:space-x-6 items-center text-[16px] md:text-[18px] leading-5 md:leading-6 font-normal">
+        <li className="active cursor-pointer ml-4 hover:text-[--foreground]">
+          <Link className="relative block" href="/">
             الرئيسية
           </Link>
         </li>
-        {/* <li className='block  cursor-pointer  py-8   hover:bg-[--foreground] hover:text-white '>
-          <Link className='relative block py-12 px-2 lg:p-4   ' href='/privacy'> </Link>
-        </li> */}
-     <li className="text-[--background] py-2 hover:text-[--foreground] lg:px-3 text-center border-b-2 md:border-b-0">
-          <DropdownMenu nameDropdown=" المذكرات" items={items} />
+        <li className="text-[--background] hover:text-[--foreground] text-center border-b-2 md:border-b-0">
+          <DropdownMenu nameDropdown="المذكرات" items={items} />
         </li>
-        <li className=" cursor-pointer font-[family-name:var(--font-IBMPlexSans-Medium)]  hover:text-[--foreground]  ">
-          <Link
-            className="ml-6 relative block  lg:px-2    "
-            href="/"
-          >
+        <li className="cursor-pointer hover:text-[--foreground]">
+          <Link className="relative block" href="/">
             الحصص المباشرة
           </Link>
         </li>
-       <li className="text-[--background] py-2 hover:text-[--foreground] lg:px-3 text-center border-b-2 md:border-b-0">
+        <li className="cursor-pointer hover:text-[--foreground]">
+          <Link className="relative block" href="/">
+            الدورات
+          </Link>
+        </li>
+        <li className="cursor-pointer hover:text-[--foreground]">
+          <Link className="relative block" href="/">
+            الباقات
+          </Link>
+        </li>
+        <li className="text-[--background] hover:text-[--foreground] text-center">
           <DropdownMenu nameDropdown="مسارات التعلم" items={items} />
         </li>
-
-
-
+        <li className="text-[--background] hover:text-[--foreground] text-center">
+          <div className="bg-[#f3f3f3ec] rounded-full p-2 cursor-pointer">
+            <TiShoppingCartMini size={28} className="text-[--foreground]" />
+          </div>
+        </li>
+        <li className="text-[--background] hover:text-[--foreground] text-center">
+          <Button
+            textinner="الدخول"
+            icon={<TiLockClosedMini/>}
+            nameLink="/login"
+            ClassNameAdd="transition-all delay-100 bg-[--foreground] px-2 py-2 md:px-4 md:py-2 text-[14px] md:text-[17px]"
+          />
+        </li>
+        <li className="text-center">
+          <ButtonOutline
+            textinner="حساب جديد"
+            nameLink="/register"
+            ClassNameAdd="transition-all p-2  hover:text-white  delay-100 text-[14px] md:text-[17px]"
+          />
+        </li>
       </ul>
-      {/* <Link className=" py-6" href="login">
-        <button className=" transition-all delay-100  border text-[--background] rounded-[6px] text-[18px] font-medium leading-6 relative block py-12 px-2 lg:p-4 hover:text-white hover:bg-[--foreground]">
-          
-        </button>
-
-      </Link> */}
-
-    </nav>
+    </div>
   );
 };
+
 export default Nav;

@@ -1,7 +1,7 @@
 "use client"; // Add this to mark the component as a Client Component
 import React, { useState } from "react";
 import Link from "next/link";
-import CountrySelector from "../../Components/CountrySelector";
+import CountrySelector from "../Components/CountrySelector";
 
 const Page = () => {
   const [data, setData] = useState({

@@ -4,9 +4,10 @@ import { MdOutlineClose as MdOutlineCloseMini } from "react-icons/md";
 import {
   IoMdDownload as IoMdDownloadMini,
 } from "react-icons/io";
-
 import { MdOutlineNotificationsActive as MdOutlineNotificationsActiveMini } from "react-icons/md";
-import { TiShoppingCart as TiShoppingCartMini } from "react-icons/ti";
+import { TiShoppingCart as TiShoppingCartMini ,
+  TiLockClosed as TiLockClosedMini
+ } from "react-icons/ti";
 import {
   FaPhone as FaPhoneMini,
   FaMessage as FaMessageMini,
@@ -35,5 +36,6 @@ export {
   FaBusinessTimeMini,
   PiStudentBoldMini,
   FaExternalLinkAltMini,
-  BiCartAddMini
+  BiCartAddMini,
+  TiLockClosedMini
 };

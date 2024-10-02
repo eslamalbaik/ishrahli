@@ -1,17 +1,18 @@
 import localFont from "next/font/local";
 import "./globals.css";
+import Head from "next/head";
 
-const geistSans = localFont({
+const CairoBoldSans = localFont({
   src: "./fonts/Cairo-Bold.woff",
   variable: "--font-Cairo-Bold",
   weight: "100 900",
 });
-const geistMono = localFont({
+const MediumCairo = localFont({
   src: "./fonts/Cairo-Medium.woff",
   variable: "--font-Cairo-Medium",
   weight: "100 900",
 });
-const geistLight = localFont({
+const CairoLight = localFont({
   src: "./fonts/Cairo-Light.woff",
   variable: "--font-Cairo-ExtraLight",
   weight: "100 900",
@@ -25,11 +26,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="ar" dir="rtl">
-         <head>
+         <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      </head>
+      </Head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${CairoBoldSans.variable} ${MediumCairo.variable} ${CairoLight.variable} antialiased`}
       >
         {children}
    

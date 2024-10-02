@@ -3,9 +3,9 @@ import Image from "next/image";
 import React from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import { BiCartAddMini, FaExternalLinkAltMini } from "../lib/@react-icons";
+import { BiCartAddMini, FaExternalLinkAltMini } from "../../lib/@react-icons";
 import Link from "next/link";
-import Rating from "./Rating";
+import Rating from "./Reviews/Rating";
 
 const responsive = {
   desktop: {

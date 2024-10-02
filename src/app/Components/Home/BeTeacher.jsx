@@ -1,5 +1,5 @@
-import Button from "./Button";
 import Image from 'next/image'
+import Button from '../Button/Button';
 const BeTeacher = () => {
   return (
     <div className="flex flex-col-reverse font-[family-name:var(--font-Cairo-Medium)] lg:flex-row justify-between items-center px-6 py-12 lg:px-24 lg:py-16 bg-gray-50">

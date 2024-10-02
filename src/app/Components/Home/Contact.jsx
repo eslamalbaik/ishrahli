@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaMapMarkerAltMini, FaMessageMini, FaPhoneMini } from '../lib/@react-icons';
+import { FaMapMarkerAltMini, FaMessageMini, FaPhoneMini } from '../../lib/@react-icons';
 
 const Contact = () => {
   return (

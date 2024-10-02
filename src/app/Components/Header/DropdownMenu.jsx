@@ -16,8 +16,8 @@ const DropdownMenu = ({ nameDropdown, items }) => {
         </svg>
       </button>
       <ul className="dropdown-menu shadow-xl absolute hidden text-black pt-1">
-        {items?.map((item) => (
-          <li key={item.id}>
+        {items?.map((item,i) => (
+          <li key={i}>
             <Link
               className="rounded-t z-10 w-52 text-base px-4 bg-white hover:bg-[--foreground] hover:text-white py-2 block whitespace-no-wrap"
               href={"/" + item.link}

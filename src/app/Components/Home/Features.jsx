@@ -1,5 +1,5 @@
 import React from 'react'
-import { BiSolidBrainMini, FaBusinessTimeMini, TbCertificateMini,PiStudentBoldMini } from '../lib/@react-icons'
+import { BiSolidBrainMini, FaBusinessTimeMini, TbCertificateMini,PiStudentBoldMini } from '../../lib/@react-icons'
 
 const Features = () => {
   return (

@@ -6,3 +6,7 @@
   --background: #1F1B4A;
   --foreground: #F69A1F;
 }
+body{
+ font-family:var(--font-Cairo-Medium);
+ font-display: swap;
+}

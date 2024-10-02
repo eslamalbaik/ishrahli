@@ -1,26 +1,28 @@
 
 "use client"; // Add this line at the top of the file
 import Link from 'next/link'
-import Image from 'next/image'
+// import Image from 'next/image'
 import Copyright from './Copyright'
-import Logo from "@/app/images/logo.png";
+import Logo from '../Logo';
+// import Logo from "@/app/images/logo.png";
 
 const Footer = () => {
 
   return (
-    <div className="  font-[family-name:var(--font-Cairo-Medium)]   bottom-0  bg-white">
-      <footer className="   border-t-2 text-center lg:px-[100px] text-[#00052E] ">
+    <footer className="  font-[family-name:var(--font-Cairo-Medium)]    bg-white">
+      <div className="   border-t-2 text-center lg:px-[100px] text-[#00052E] ">
         <div className="mx-6 py-10 text-center md:text-right">
           <div className="grid-1 grid  gap-8 md:grid-cols-2 lg:grid-cols-4">
             <div className="">
               <div className="mb-4   md: flex items-center justify-center font-semibold uppercase md:justify-start">
                {/* logo  */}
-          <Image src={Logo}   
+          {/* <Image src={Logo}   
           width="140"
              height="95"
              className=" -mt-4 md:h-[90px] max-sm:h-[55px] max-sm:w-[80px]"
               alt="logo"
-               />
+               /> */}
+               <Logo/>
               </div>
               <p className="font-[family-name:var(--font-Cairo-ExtraLight)]">
                 ندرس أسلوب للتفوق بطريقة آمنة توفر وقت وجهد الطلاب
@@ -124,9 +126,9 @@ const Footer = () => {
             </div>
           </div>
         </div>
-      </footer>
+      </div>
       <Copyright />
-    </div>
+    </footer>
   );
 };
 

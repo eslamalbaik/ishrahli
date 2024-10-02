@@ -1,4 +1,4 @@
-import countries from '../../data/countries.json'; // Adjust the path based on where you save your JSON file
+import countries from '../data/countries.json'; // Adjust the path based on where you save your JSON file
 
 const CountrySelector = ({country,setData,data}) => {
 

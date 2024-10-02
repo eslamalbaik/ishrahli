@@ -1,27 +1,29 @@
-import AllCourses from "./Components/AllCourses";
-import BestNotes from "./Components/BestNotes";
-import BestPackages from "./Components/BestPackages";
-import BeTeacher from "./Components/BeTeacher";
-import Contact from "./Components/Contact";
-import Features from "./Components/Features";
-import Footer from "./Components/Footer";
-import Header from "./Components/Header/Header";
-import Hero from "./Components/Hero";
-import Reviews from "./Components/Reviews";
+import React, { Suspense, lazy } from 'react';
+const AllCourses = lazy(() => import("./Components/Home/AllCourses"));
+const BestNotes = lazy(() => import("./Components/Home/BestNotes"));
+const BestPackages = lazy(() => import("./Components/Home/Packages/BestPackages"));
+const BeTeacher = lazy(() => import("./Components/Home/BeTeacher"));
+const Contact = lazy(() => import("./Components/Home/Contact"));
+const Features = lazy(() => import("./Components/Home/Features"));
+const Footer = lazy(() => import("./Components/Footer/Footer"));
+const Header = lazy(() => import("./Components/Header/Header"));
+const Hero = lazy(() => import("./Components/Home/Hero"));
+const Loading = lazy(() => import("./Components/Loading"));
+const Reviews = lazy(() => import("./Components/Home/Reviews/Reviews"));
 
 export default function Home() {
   return (
-   <>
+    <Suspense fallback={<Loading/>}>
         <Header/>
    <Hero/>
    <Features/>
    <BestPackages/>
-   {/* <AllCourses/> */}
-   {/* <BestNotes/> */}
-   {/* <Reviews/> */}
+   <AllCourses/>
+   <BestNotes/>
+   <Reviews/>
    <BeTeacher/>
    <Contact/>
    <Footer/>
-   </>
+   </Suspense>
   );
 }

@@ -1,7 +1,8 @@
-import countries from '../data/countries.json'; // Adjust the path based on where you save your JSON file
+import React from 'react';
+import { Controller } from 'react-hook-form';
+import countries from '../data/countries.json'; // تأكد من ضبط المسار بناءً على مكان حفظ ملف JSON الخاص بك
 
-const CountrySelector = ({country,setData,data}) => {
-
+const CountrySelector = ({ control,styleInput }) => {
   return (
     <div className="w-[500px]">
       <label
@@ -10,25 +11,26 @@ const CountrySelector = ({country,setData,data}) => {
       >
         اختر الدولة
       </label>
-      <select
+      <Controller
         name="country"
-        id="country"
-        className="w-full mb-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-500"
-        value={country}
-        onChange={(e) => {
-            setData({
-              ...data,
-              country: e.target.value,
-            });
-          }}
-      >
-        <option value="">اختر الدولة</option>
-        {countries.map((country, index) => (
-          <option key={index} value={country.name}>
-            {country.name}
-          </option>
-        ))}
-      </select>
+        control={control} 
+        defaultValue="الكويت" // قيمة افتراضية هي اسم الدولة
+        render={({ field }) => (
+          <select
+            id="country"
+            className={`${styleInput} p-0 m-0 text-sm`}
+            {...field}
+          >
+            <option value="">اختر دولة...</option> 
+            {countries.map((country, index) => (
+              <option key={index} value={country.name  }>
+                {country.name +" " +country.dialCode}
+                
+              </option>
+            ))}
+          </select>
+        )}
+      />
     </div>
   );
 };

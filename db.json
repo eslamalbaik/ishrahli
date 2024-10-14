@@ -1,0 +1,64 @@
+{
+  "user": [
+    {
+      "id": "236b",
+      "gender": "ذكر",
+      "FirstName": "سسس",
+      "LastName": "سسس",
+      "country": "الكويت",
+      "phoneNumber": "41111111",
+      "password": "11",
+      "confirmPassword": "11",
+      "grade": "الصف السابع",
+      "city": "مدينة الكويت",
+      "piece": "1",
+      "street": "1",
+      "avenue": "1"
+    },
+    {
+      "id": "9763",
+      "gender": "ذكر",
+      "FirstName": "سسس",
+      "LastName": "سسس",
+      "country": "الكويت",
+      "phoneNumber": "433333333",
+      "password": "333",
+      "confirmPassword": "333",
+      "grade": "الصف الثامن",
+      "city": "السالمية",
+      "piece": "33",
+      "street": "3",
+      "avenue": "33"
+    },
+    {
+      "id": "9e5d",
+      "gender": "ذكر",
+      "FirstName": "sss",
+      "LastName": "sss",
+      "country": "الكويت",
+      "phoneNumber": "433333333",
+      "password": "sss",
+      "confirmPassword": "sss",
+      "grade": "الصف الخامس",
+      "city": "الفروانية",
+      "piece": "ss",
+      "street": "ss",
+      "avenue": "ss"
+    },
+    {
+      "id": "5fdb",
+      "gender": "ذكر",
+      "FirstName": "sss",
+      "LastName": "sss",
+      "country": "الكويت",
+      "phoneNumber": "4444444444",
+      "password": "sss",
+      "confirmPassword": "sss",
+      "grade": "الصف الثامن",
+      "city": "السالمية",
+      "piece": "4",
+      "street": "4",
+      "avenue": "4"
+    }
+  ]
+}

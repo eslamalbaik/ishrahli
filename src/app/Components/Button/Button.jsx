@@ -1,5 +1,4 @@
 import Link from 'next/link'
-
 const Button = ({textinner,nameLink,icon="",ClassNameAdd="",disabled}) => {
   return (
     <Link href={`${nameLink}`}>

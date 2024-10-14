@@ -1,6 +1,8 @@
-import Logo from "../Logo";
-import Nav from "./Nav";
-import NavMobile from "./NavMobile";
+import React from "react";
+import dynamic from "next/dynamic";
+const Logo = dynamic(() => import('../Logo'));
+const Nav = dynamic(() => import('./Nav'));
+const NavMobile = dynamic(() => import('./NavMobile'));
 const Header = () => {
   return (
     <header className="w-full bg-white active scroll-smooth fixed left-0 top-0 z-[10000] mb-24 ">

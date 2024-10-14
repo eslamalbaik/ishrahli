@@ -1,12 +1,23 @@
-"use client"; // Add this to mark the component as a Client Component
-import React, { useState } from "react";
+"use client"; 
 import Link from "next/link";
-import DropdownMenu from "./DropdownMenu";
+import React, { useState ,useEffect} from "react";
+import dynamic from "next/dynamic";
+const DropdownMenu = dynamic(() => import('./DropdownMenu'));
 import { TiLockClosedMini, TiShoppingCartMini } from "@/app/lib/@react-icons";
-import Button from "../Button/Button";
-import ButtonOutline from "../Button/ButtonOutline";
-
+const Button = dynamic(() => import('../Button/Button'));
+const ButtonOutline = dynamic(() => import('../Button/ButtonOutline'));
 const Nav = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  useEffect(() => {
+    const username = sessionStorage.getItem('username'); 
+    if (username) {
+      setIsLoggedIn(true); 
+    }
+  }, []);
+  const handleLogout = () => {
+    sessionStorage.clear(); 
+    setIsLoggedIn(false); 
+  };
   const items = [
     {
       id: 0,
@@ -47,7 +58,7 @@ const Nav = () => {
           </Link>
         </li>
         <li className="cursor-pointer hover:text-[--foreground]">
-          <Link className="relative block" href="/">
+          <Link className="relative block" href="/AllCourses">
             الدورات
           </Link>
         </li>
@@ -64,21 +75,31 @@ const Nav = () => {
             <TiShoppingCartMini size={28} className="text-[--foreground]" />
           </div>
         </li>
-        <li className="text-[--background] hover:text-[--foreground] text-center">
-          <Button
-            textinner="الدخول"
-            icon={<TiLockClosedMini/>}
-            nameLink="/login"
-            ClassNameAdd="transition-all delay-100 bg-[--foreground] px-2 py-2 md:px-4 md:py-2 text-[14px] md:text-[17px]"
-          />
-        </li>
-        <li className="text-center">
-          <ButtonOutline
-            textinner="حساب جديد"
-            nameLink="/register"
-            ClassNameAdd="transition-all p-2  hover:text-white  delay-100 text-[14px] md:text-[17px]"
-          />
-        </li>
+        {isLoggedIn ? (
+          <li className="text-center">
+            <button  onClick={handleLogout}  className="hover:text-[--foreground]">
+              حسابي
+            </button>
+          </li>
+        ) : (
+          <>
+            <li className="text-[--background] hover:text-[--foreground] text-center">
+              <Button
+                textinner="الدخول"
+                icon={<TiLockClosedMini />}
+                nameLink="/login"
+                ClassNameAdd="transition-all delay-100 bg-[--foreground] px-2 py-2 md:px-4 md:py-2 text-[14px] md:text-[17px]"
+              />
+            </li>
+            <li className="text-center">
+              <ButtonOutline
+                textinner="اشترك الآن"
+                nameLink="/register"
+                ClassNameAdd="transition-all p-2 hover:text-white delay-100 text-[14px] md:text-[17px]"
+              />
+            </li>
+          </>
+        )}
       </ul>
     </div>
   );

@@ -11,6 +11,7 @@ const PackageCard = ({ imageUrl }) => {
             width={350}
             height={250}
             className="rounded-tl-md rounded-tr-md transition-transform duration-300 transform hover:scale-105"
+            priority
           />
         </div>
   

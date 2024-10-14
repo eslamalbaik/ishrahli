@@ -1,5 +1,6 @@
 import Image from 'next/image'
-import Button from '../Button/Button';
+import dynamic from "next/dynamic";
+const Button = dynamic(() => import("../Button/Button"));
 const BeTeacher = () => {
   return (
     <div className="flex flex-col-reverse font-[family-name:var(--font-Cairo-Medium)] lg:flex-row justify-between items-center px-6 py-12 lg:px-24 lg:py-16 bg-gray-50">
@@ -18,13 +19,16 @@ const BeTeacher = () => {
 
   {/* Image Section */}
   <div className="lg:w-1/2 mb-6 lg:mb-0">
-    <Image
-      src="/images/banner-image-group-teachers.png"
-      alt="banner-image-group-teachers"
-      width={450}
-      height={450}
-      className="mx-auto"
-    />
+  <div className=" max-w-[450px]" >
+  <Image
+    src="/images/banner-image-group-teachers.png"
+    alt="banner-image-group-teachers"
+    className="w-full h-full"
+    width={300}
+    height={300}
+    
+  />
+</div>
   </div>
 </div>
 

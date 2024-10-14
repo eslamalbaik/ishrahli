@@ -1,8 +1,9 @@
 "use client";
 import React, { useState } from "react";
 import Logo from "../Components/Logo";
-import InputFiled from "../Components/InputFiled";
+import InputFiled from "../Components/InputField";
 import Breadcrumbs from "../Components/Breadcrumbs";
+import { useForm, FormProvider, Controller } from "react-hook-form";
 
 const Page = () => {
   const [data, setData] = useState({
@@ -14,7 +15,13 @@ const Page = () => {
     { href: '/lostpassword', label: 'نسيت كلمة السر' }
   ]
   const [gender, setGender] = useState(""); // State for gender
-
+  const methods = useForm(); // Create methods for useForm
+  const {
+    control,
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = methods;
   const handleRegistration = (e) => {
     e.preventDefault();
     console.log(data);
@@ -36,10 +43,12 @@ const Page = () => {
         <h4 className="text-start w-[520px] pb-12 text-lg  text-[--background] ">
             الرجاء إدخال عنوان البريد الإلكتروني. سوف تتلقى رسالة بريد إلكتروني مع تعليمات حول كيفية إعادة تعيين كلمة المرور الخاصة بك.
             </h4>
-          <form action="" onSubmit={handleRegistration} className="group">
+          <FormProvider {...methods}>
+          <form action="" onSubmit={handleSubmit} className="group">
             <InputFiled 
             name="البريد الإلكتروني" 
             namelabel="email"
+            nameplaceholder="البريد الإلكتروني"
             type="email"
             maxLength={25} 
              pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$"
@@ -55,6 +64,7 @@ const Page = () => {
                 طلب الرابط للإستعادة
               </button>
           </form>
+          </FormProvider>
         </div>
       </div>
     </section>

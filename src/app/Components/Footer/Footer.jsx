@@ -1,10 +1,9 @@
 
-"use client"; // Add this line at the top of the file
+"use client"; 
 import Link from 'next/link'
-// import Image from 'next/image'
-import Copyright from './Copyright'
-import Logo from '../Logo';
-// import Logo from "@/app/images/logo.png";
+import dynamic from 'next/dynamic';
+const Copyright = dynamic(() => import('./Copyright'));
+const Logo = dynamic(() => import('../Logo'));
 
 const Footer = () => {
 
@@ -16,12 +15,6 @@ const Footer = () => {
             <div className="">
               <div className="mb-4   md: flex items-center justify-center font-semibold uppercase md:justify-start">
                {/* logo  */}
-          {/* <Image src={Logo}   
-          width="140"
-             height="95"
-             className=" -mt-4 md:h-[90px] max-sm:h-[55px] max-sm:w-[80px]"
-              alt="logo"
-               /> */}
                <Logo/>
               </div>
               <p className="font-[family-name:var(--font-Cairo-ExtraLight)]">

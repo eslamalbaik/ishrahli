@@ -1,11 +1,8 @@
 "use client"; // Add this to mark the component as a Client Component
 import React, { useState } from 'react';
 import Link from 'next/link'
-// import icons
 import { AiOutlineClose } from 'react-icons/ai';
 import { FaBars } from 'react-icons/fa';
-// FaBars 
-// AiOutlineClose
 const NavMobile = () => {
   const [isOpen, setisOpen] = useState(false);
   return (

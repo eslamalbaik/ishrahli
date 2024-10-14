@@ -5,7 +5,8 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { BiCartAddMini, FaExternalLinkAltMini } from "../../lib/@react-icons";
 import Link from "next/link";
-import Rating from "./Reviews/Rating";
+import dynamic from "next/dynamic";
+const Rating = dynamic(() => import("./Reviews/Rating"));
 
 const responsive = {
   desktop: {
@@ -27,31 +28,31 @@ const responsive = {
 
 const sliderImageUrl = [
   {
-    url: "/images/courses/E-01.png.webp",
+    url:"https://ishrahli.com/storage/images/classrooms/2023-06-11-19-35WTwIX.png",
     name: "مذكرة الرياضيات الصف الثالث الثانوي",
     about: "باقة مذكرةات الصف الرابع (لغة عربية - لغة انجليزية - علوم - رياضيات)",
     salary: "KWD 50",
   },
   {
-    url: "/images/courses/E-02.png.webp",
+    url:"https://ishrahli.com/storage/images/classrooms/2023-06-11-19-35WTwIX.png",
     name: "مذكرة الرياضيات الصف الثالث الثانوي",
     about: "باقة مذكرةات الصف الرابع (لغة عربية - لغة انجليزية - علوم - رياضيات)",
     salary: "KWD 45",
   },
   {
-    url: "/images/courses/E-03.png.webp",
+    url:"https://ishrahli.com/storage/images/classrooms/2023-06-11-19-35WTwIX.png",
     name: "مذكرة الرياضيات الصف الثالث الثانوي",
     about: "باقة مذكرةات الصف الرابع (لغة عربية - لغة انجليزية - علوم - رياضيات)",
     salary: "KWD 60",
   },
   {
-    url: "/images/courses/E-04.png.webp",
+    url:"https://ishrahli.com/storage/images/classrooms/2023-06-11-19-35WTwIX.png",
     name: "مذكرة الرياضيات الصف الثالث الثانوي",
     about: "باقة مذكرةات الصف الرابع (لغة عربية - لغة انجليزية - علوم - رياضيات)",
     salary: "KWD 55",
   },
   {
-    url: "/images/courses/E-05.png.webp",
+    url:"https://ishrahli.com/storage/images/classrooms/2023-06-11-19-35WTwIX.png",
     name: "مذكرة الرياضيات الصف الثالث الثانوي",
     about: "باقة مذكرةات الصف الرابع (لغة عربية - لغة انجليزية - علوم - رياضيات)",
     salary: "KWD 40",
@@ -87,12 +88,13 @@ const BestNotes = () => {
                 width={350}
                 height={250}
                 className="rounded-tl-md rounded-tr-md transition-transform duration-300 transform hover:scale-105"
+                priority 
               />
             </div>
             <div className="p-4 text-right">
               <h3 className="text-lg md:text-xl font-medium mb-2">{imageUrl.name}</h3>
-              <p className="text-sm md:text-base text-[#595C5F] font-light mb-4 flex justify-end items-end">  
-                <p className="text-xl text-yellow-400">4.5</p> <Rating rating={4.5} /></p>
+              <div className="text-sm md:text-base text-[#595C5F] font-light mb-4 flex justify-end items-end">  
+                <p className="text-xl text-yellow-400">4.5</p> <Rating rating={4.5} /></div>
               <div className="flex justify-between items-center">
                 <p className="text-red-600 text-[16px] md:text-[18px] font-bold">{imageUrl.salary}</p>
                 <p>:سعر المذكرة</p>

@@ -3,9 +3,8 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { BiCartAddMini, FaExternalLinkAltMini } from "../../../lib/@react-icons";
 import Link from "next/link";
-import React, { Suspense, lazy } from 'react';
-import Loading from "../../Loading";
-const PackageCard = lazy(() => import('./PackageCard'));
+import dynamic from "next/dynamic";
+const PackageCard = dynamic(() => import("./PackageCard"));
 import {sliderImageUrl} from "@/app/data/data"
 const responsive = {
   desktop: {
@@ -48,9 +47,7 @@ const BestPackages = () => {
         dotListClass="custom-dot-list-style"
       >
         {sliderImageUrl.map((imageUrl, index) => (
-              <Suspense fallback={<Loading/>} key={index}>
                 <PackageCard key={index} imageUrl={imageUrl} />
-          </Suspense>
         ))}
       </Carousel>
     </div>

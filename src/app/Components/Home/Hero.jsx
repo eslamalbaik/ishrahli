@@ -1,26 +1,11 @@
 import Image from 'next/image'
-import dynamic from 'next/dynamic';
-// const Button=dynamic(()=>import('./Button'))
-// import ImageHero1 from '../images/home-02.png';
-// import ImageHero from '../images/hero-1.svg';
 import { IoMdDownloadMini, MdOutlineNotificationsActiveMini } from '../../lib/@react-icons';
 import Link from 'next/link';
-import React, { Suspense, lazy } from 'react';
-import Loading from '../Loading';
-
-// Delay function
-const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
-
-// Simulate a slow loading Button component
-const Button = dynamic(async () => {
-  await delay(4000); // Add a delay to simulate slow loading
-  return import('../Button/Button');
-});
-
+import React from 'react';
+import Button from '../Button/Button'
 const Hero = () => {
 
   return (
-    <Suspense fallback={<Loading/>}>
      <div className="w-full bg-[#f3f3f3ec] py-24 px-12  md:py-36 md:px-24  text-[--background] font-[family-name:var(--font-Cairo-Medium)] flex-nowrap md:flex-warp   flex justify-between items-center"  >
       <div  className='flex  relative justify-start items-start gap-6 flex-col'>
           <div className='hidden md:block absolute left-8 top-4 w-12 h-12 '>
@@ -52,8 +37,9 @@ const Hero = () => {
         <Image
           src="/images/home-02.png"
           alt="صورة الصفحة الهيرو ندرس"
-          width={550}
-          height={300}
+          width={500}
+          height={400}
+          className="w-full h-auto"
           priority
         />
         <div className="hidden md:block absolute right-2 -bottom-16 ">
@@ -69,9 +55,7 @@ const Hero = () => {
     </div>
  </div>
       </div>
-
     </div>
-    </Suspense>
 
   )
 }

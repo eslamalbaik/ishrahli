@@ -3,6 +3,7 @@ import { FiMenu as FiMenuMini } from "react-icons/fi";
 import { MdOutlineClose as MdOutlineCloseMini } from "react-icons/md";
 import {
   IoMdDownload as IoMdDownloadMini,
+
 } from "react-icons/io";
 import { MdOutlineNotificationsActive as MdOutlineNotificationsActiveMini } from "react-icons/md";
 import { TiShoppingCart as TiShoppingCartMini ,
@@ -12,6 +13,9 @@ import {
   FaPhone as FaPhoneMini,
   FaMessage as FaMessageMini,
   FaBusinessTime as FaBusinessTimeMini,
+  FaRegEye as FaRegEye1Mini,
+  FaEyeSlash as FaEyeSlashMini
+
 } from "react-icons/fa6";
 import { FaMapMarkerAlt as FaMapMarkerAltMini,
     FaExternalLinkAlt as FaExternalLinkAltMini
@@ -37,5 +41,7 @@ export {
   PiStudentBoldMini,
   FaExternalLinkAltMini,
   BiCartAddMini,
-  TiLockClosedMini
+  TiLockClosedMini,
+  FaRegEye1Mini,
+  FaEyeSlashMini
 };

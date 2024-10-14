@@ -1,9 +1,10 @@
 "use client";
 import React, { useState } from "react";
+import Image from "next/image";
+import dynamic from "next/dynamic";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import Slide from "../Slide";
-import Image from "next/image";
+const Slide =dynamic(()=>import('../Slide'));
 
 const Reviews = () => {
   const [activeImageIndex, setActiveImageIndex] = useState(0);

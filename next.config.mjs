@@ -1,8 +1,14 @@
 const nextConfig = {
-    images: {
-      domains: ['ishrahli.com'], 
-    },
-  };
-  
-  export default nextConfig;
-  
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'ishrahli.com',
+        port: '',
+        pathname: '/**',
+      },
+    ],
+  },
+};
+
+export default nextConfig;

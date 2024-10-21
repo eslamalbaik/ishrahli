@@ -1,0 +1,19 @@
+.react-tabs__tab--selected {
+    background-color: var(--background);
+    width: 180px;
+    padding: 15px 0;
+    text-align: center;
+    color: white; 
+    border: none; 
+    outline: none; 
+  }
+  
+
+  .react-tabs__tab {
+    width: 180px;
+    text-align: center;
+    padding: 15px 0;
+  }
+  .react-tabs__tab-panel {
+    padding: 20px;
+  }

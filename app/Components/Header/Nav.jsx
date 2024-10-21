@@ -4,6 +4,7 @@ import dynamic from "next/dynamic";
 const DropdownMenu = dynamic(() => import('./DropdownMenu'));
 import { TiLockClosedMini, TiShoppingCartMini } from "../../lib/@react-icons";
 import NavItem from "./NavItem";
+import Link from "next/link";
 const Button = dynamic(() => import('../Button/Button'));
 const ButtonOutline = dynamic(() => import('../Button/ButtonOutline'));
 const Nav = () => {
@@ -47,11 +48,13 @@ const Nav = () => {
         <li className="text-[--background] hover:text-[--foreground] text-center border-b-2 md:border-b-0">
           <DropdownMenu nameDropdown="المذكرات" items={items} />
         </li>
-        <NavItem link="/">الحصص المباشرة</NavItem>
-        <NavItem link="/AllCourses">الدورات</NavItem>
         <li className="text-[--background] hover:text-[--foreground] text-center">
           <DropdownMenu nameDropdown="مسارات التعلم" items={items} />
         </li>
+        <NavItem link="/">الباقات</NavItem>
+        <NavItem link="/">الحصص المباشرة</NavItem>
+        <NavItem link="/AllCourses">الدورات</NavItem>
+        <NavItem link="/Capabilities">القدرات</NavItem>
         <li className="text-[--background] hover:text-[--foreground] text-center">
           <div className="bg-[#f3f3f3ec] rounded-full p-2 cursor-pointer">
             <TiShoppingCartMini size={28} className="text-[--foreground]" />
@@ -59,9 +62,8 @@ const Nav = () => {
         </li>
         {isLoggedIn ? (
           <li className="text-center">
-            <button  onClick={handleLogout}  className="hover:text-[--foreground]">
-              حسابي
-            </button>
+            {/* <button  onClick={handleLogout}  className="hover:text-[--foreground]">    </button>*/}
+              <Link href='/MyAccount'>حسابي</Link>
           </li>
         ) : (
           <>

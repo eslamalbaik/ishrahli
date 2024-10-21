@@ -57,8 +57,6 @@ const Page = () => {
             toast.error('Login Failed due to: ' + err.message);
         }
     };
-    
-      
 
   const styleInput ="h-[45px] w-full bg-[#7786f97a]  border border-gray-300 text-gray-900 text-base rounded-lg block  p-2.5 placeholder-gray-600";
   const linksLogin = [
@@ -137,6 +135,5 @@ const Page = () => {
     </section>
   );
 };
-
 export default Page;
 

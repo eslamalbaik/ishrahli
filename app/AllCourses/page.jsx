@@ -5,11 +5,11 @@ import  CourseCard from "../Components/CourseCard";
 import {CardsData} from '../data/data'
 const Page = () => { 
   const [filter, setFilter] = useState(null); 
- 
   const filterCourses = (subject) => {
     setFilter(subject);
   };
   const filteredCourses = filter  ? CardsData.filter((course) => course.subject === filter)  : CardsData;
+
   return (
     <MainLayout>
       <section className="w-full h-full bg-[#f3f3f3ec] py-24 px-12  md:py-36 md:px-24   text-[--background] font-[family-name:var(--font-Cairo-Medium)]">
@@ -25,7 +25,8 @@ const Page = () => {
               <button className="p-2 bg-[--foreground] rounded-md text-white hover:bg-[--background]" onClick={() => filterCourses ("English")}>English</button>
             </div>
               {/* إضافة المزيد من الأزرار لباقي المواد */}
-            </div>          <div className="grid grid-cols-4 gap-y-6 pt-12">
+            </div>
+            <div className="grid grid-cols-4 gap-y-6 pt-12">
             {filteredCourses.map(({ id, name, rating, salary, url }) => (
               <CourseCard
                 key={id}

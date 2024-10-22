@@ -17,12 +17,16 @@ const BestPackages = dynamic(() =>
 const Reviews = dynamic(() => import("./Components/Home/Reviews/Reviews"), {
     ssr: false,
 });
-import TabbedForm from "./Components/TabAccount/TabbedForm";
 export default function Home() {
     return (
         <MainLayout>
-      <TabbedForm />
-
+            <Hero/>
+            <Features/>
+            <AllCourses/>
+            <BestNotes/>
+            <BestPackages/>
+            <Reviews/>
+            <Contact/>
         </MainLayout>
     );
 }

@@ -1,10 +1,10 @@
 import React from 'react'
 import MainLayout from '../MainLayout/MainLayout'
-
+import MyAccount from '../Components/TabAccount/MyAccount'
 const page = () => {
   return (
    <MainLayout>
-   <div className="mt-40 h-[1000px]">page</div>
+   <MyAccount/>
    </MainLayout>
   )
 }

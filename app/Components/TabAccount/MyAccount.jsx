@@ -28,7 +28,7 @@ const ReactTabsExample = () => {
   // };
 
   return (
-    <section className="pt-32 h-[1000px] py-24 px-24 font-[family-name:var(--font-Cairo-Medium)]  ">
+    <section className="pt-32 h-max py-24 px-24 bg-[#f3f3f3ec]  ">
       <Tabs className="shadow-lg bg-white rounded-md ">
         <TabList className="text-[--background] text-xl font-semibold  ">
           <Tab>كورساتي</Tab>

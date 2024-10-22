@@ -3,11 +3,13 @@ import React, { useState ,useEffect} from "react";
 import Link from "next/link";
 import Logo from "../Components/Logo";
 import Breadcrumbs from "../Components/Breadcrumbs";
-import CountrySelector from "../Components/CountrySelector";
 import InputField from "../Components/InputField";
 import { useForm, FormProvider, Controller } from "react-hook-form";
 import {  toast } from 'react-hot-toast';
 import { useRouter } from "next/navigation";
+import SelectField from "../Components/SelectField";
+import countries from '../data/countries.json'; 
+
 const Page = () => {
   const router = useRouter();
   const methods = useForm(); // Create methods for useForm
@@ -47,7 +49,7 @@ const Page = () => {
                     toast.success('Success');
                     sessionStorage.setItem('username', user.name); // Adjust this if needed
                     sessionStorage.setItem('userrole', user.role); // Adjust this if user.role exists
-                    router.push('/'); 
+                    router.push('/MyAccount'); 
                 } else {
                     toast.error('Please Enter valid credentials');
                 }
@@ -82,7 +84,17 @@ const Page = () => {
           <FormProvider {...methods}>
             <form action="" onSubmit={handleSubmit(onSubmit)} className="group space-y-4">
               <div className="w-[500px] ">
-                <CountrySelector control={control} styleInput={styleInput}/>
+              <SelectField
+                        name="country"
+                        control={control}
+                        defaultValue="الكويت" // Default value is the country name
+                        label="اختر الدولة"
+                        options={countries} // Array of country objects
+                        placeholder="اختر دولة..."
+                        valueKey="name" 
+                        labelKey="name" 
+                        styleInput={`${styleInput} w-[500px] p-0 m-0 text-sm`} // Custom styles
+                      />
               </div>
               <InputField
                 name="phoneNumber"

@@ -5,27 +5,15 @@ import "./custom-tabs.css"; // Make sure to import the custom CSS file
 
 import Link from "next/link";
 import TabEditAccount from "./TabEditAccount";
-import TabChangePass from "./tabChangePass";
+import TabChangePass from "./TabChangePass";
 // Default CSS
 // bg-[#f3f3f3ec]
 
+
+const handleLogout = () => {
+  sessionStorage.clear(); 
+};
 const ReactTabsExample = () => {
-
-
-  // const handleImageUpload = async (event) => {
-  //   const file = event.target.files[0];
-  //   const formData = new FormData();
-  //   formData.append('image', file);
-
-  //   try {
-  //     const response = await axios.post('/api/enhance-image', formData);
-  //     // Handle the enhanced image response here
-  //     console.log('Enhanced image:', response.data);
-  //     // Update state or display the enhanced image
-  //   } catch (error) {
-  //     console.error('Error enhancing image:', error);
-  //   }
-  // };
 
   return (
     <section className="pt-32 h-max py-24 px-24 bg-[#f3f3f3ec]  ">
@@ -37,6 +25,7 @@ const ReactTabsExample = () => {
           <Tab>تعديل حسابك</Tab>
           <Tab>تغيير كلمة المرور</Tab>
           <Tab>المساعدة</Tab>
+          <Tab>تسجيل الخروج</Tab>
         </TabList>
         <hr />
         <TabPanel>
@@ -79,6 +68,9 @@ const ReactTabsExample = () => {
                 info.ishrahli@gmail.com
               </Link>
             </h2>
+        </TabPanel>
+        <TabPanel>
+         <Link href="/"><button  onClick={handleLogout}  className="hover:text-[--foreground]">تسجيل الخروج </button></Link>
         </TabPanel>
       </Tabs>
     </section>

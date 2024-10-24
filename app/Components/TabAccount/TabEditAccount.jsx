@@ -5,7 +5,6 @@ import React, { useEffect, useState } from "react";
 import SelectField from "../SelectField";
 import cities from "../../data/cities.json";
 import { toast } from "react-hot-toast";
-import { ConfirmationModal, SuccessPopup } from "./ConfirmationModal";
 
 const TabEditAccount = () => {
   const methods = useForm();
@@ -34,63 +33,96 @@ const TabEditAccount = () => {
     setIsModalOpen(false);
   };
 
-  const userId = sessionStorage.getItem('userId');
-
-  useEffect(() => {
-    const fetchUserData = async () => {
-      try {
-        const response = await fetch(`http://localhost:3001/user?id=${userId}`);
-        if (!response.ok) {
-          throw new Error("Error fetching user data");
+  const id = sessionStorage.getItem('id');
+  console.log('Session ID:', id);
+    useEffect(() => {
+      const fetchUserData = async () => {
+        try {
+          const response = await fetch(`http://localhost:3001/user?id=${id}`);
+          if (!response.ok) {
+            throw new Error("Error fetching user data");
+          }
+      
+          const userArray = await response.json(); // استرجاع المصفوفة
+          console.log('User Data:', userArray);
+      
+          // التحقق من أن المصفوفة تحتوي على عنصر واحد على الأقل
+          if (userArray.length > 0) {
+            const user = userArray[0]; // الحصول على أول عنصر من المصفوفة
+            setUserData(user);
+            setValue("id", user.id);
+            setValue("FirstName", user.FirstName);
+            setValue("LastName", user.LastName);
+            setValue("password", user.password);
+            setValue("confirmPassword", user.confirmPassword);
+            setValue("phoneNumber", user.phoneNumber);
+            setValue("country", user.country);
+            setValue("gender", user.gender);
+            setValue("email", user.email);
+            setValue("city", user.city);
+            setValue("grade", user.grade);
+            setValue("piece", user.piece);
+            setValue("avenue", user.avenue);
+            setValue("street", user.street);
+            console.log(user.FirstName + " The First Name is ");
+          } else {
+            toast.error("User data not found");
+          }
+        } catch (error) {
+          toast.error("Error loading user data");
+        } finally {
+          setLoading(false); // Set loading to false after the fetch
         }
-        const data = await response.json();
-        const user = data[userId]; // Adjust based on the response structure
-        setUserData(user);
+      };
+      
+    
 
-        // Set form values
-        setValue("FirstName", user.FirstName);
-        setValue("LastName", user.LastName);
-        setValue("phoneNumber", user.phoneNumber);
-        setValue("city", user.city);
-        setValue("grade", user.grade);
-      } catch (error) {
-        toast.error("Error loading user data");
-      } finally {
-        setLoading(false); // Set loading to false after the fetch
-      }
-    };
-
-    if (userId) {
+    if (id) {
       fetchUserData();
     }
-  }, [setValue, userId]);
-
-  const onSubmit = async (data) => {
-    try {
-      const response = await fetch(`http://localhost:3001/user/${userId}`, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
+  }, [setValue, id]);
+  const onSubmit = (data) => {
+    fetch(`http://localhost:3001/user/${id}`, {  
+      method: "PUT",  
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    })
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error(`Failed with status: ${res.status}`);
+        }
+        return res.json();
+      })
+      .then(() => {
+        toast.success("تم تحديث الحساب بنجاح", {
+          duration: 4000,
+          position: "bottom-right",
+          style: {
+            backgroundColor: "#4CAF50",
+            color: "#fff",
+          },
+        });
+        router.push("/login");
+      })
+      .catch((err) => {
+        toast.error("خطأ: " + err.message, {
+          duration: 4000,
+          position: "top-left",
+          style: {
+            backgroundColor: "red",
+            color: "#fff",
+          },
+        });
       });
-
-      if (response.ok) {
-        toast.success("Account updated successfully");
-      } else {
-        throw new Error("Failed to update account");
-      }
-    } catch (error) {
-      toast.error("Error updating account: " + error.message);
-    }
   };
-
+  
+  
   if (loading) {
-    return <p>Loading...</p>; // Show loading until data is fetched
+    return <p>Loading...</p>;
   }
 
   if (!userData) {
-    return <p>No user data available.</p>; // Handle case where no data is returned
+    return <p>No user data available.</p>; 
   }
 
   const styleInput =
@@ -99,7 +131,7 @@ const TabEditAccount = () => {
   return (
     <div>
       <FormProvider {...methods}>
-        <form onSubmit={handleSubmit(onSubmit)}> {/* Use handleSubmit here */}
+        <form onSubmit={handleSubmit(onSubmit)}>
           <div className="flex justify-center px-24 items-center flex-col">
             <h3 className="font-[900] self-start text-[--background] border-b-[3px] border-[--foreground] text-xl m-8 py-2">
               المعلومات الشخصية
@@ -147,7 +179,7 @@ const TabEditAccount = () => {
                 namelabel="البريد الإلكتروني"
                 type="email"
                 register={register}
-                maxLength={12}
+                maxLength={35}
                 styleInput={`${styleInput}`}
                 messageError="يجب أن يتكون رقم الهاتف من 8 إلى 12 رقمًا ويكون بمقدمة احدى ارقام الكويت."
               />
@@ -218,8 +250,7 @@ const TabEditAccount = () => {
             </div>
             <button
               type="submit" // Ensure type is submit
-              className="w-[95%] my-8 text-white bg-[--foreground] hover:bg-[--background] focus:ring-1 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-6 py-3 text-center"
-            >
+              className="w-[95%] my-8 text-white bg-[--foreground] hover:bg-[--background] focus:ring-1 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-6 py-3 text-center">
               تعديل حساب
             </button>
           </div>
@@ -228,6 +259,7 @@ const TabEditAccount = () => {
           <br />
         </form>
       </FormProvider>
+
     </div>
   );
 };

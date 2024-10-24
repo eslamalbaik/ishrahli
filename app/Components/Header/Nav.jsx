@@ -10,15 +10,12 @@ const ButtonOutline = dynamic(() => import('../Button/ButtonOutline'));
 const Nav = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   useEffect(() => {
-    const username = sessionStorage.getItem('username'); 
-    if (username) {
+    const id = sessionStorage.getItem('id'); 
+    if (id) {
       setIsLoggedIn(true); 
     }
   }, []);
-  const handleLogout = () => {
-    sessionStorage.clear(); 
-    setIsLoggedIn(false); 
-  };
+
   const items = [
     {
       id: 0,
@@ -51,7 +48,7 @@ const Nav = () => {
         <li className="text-[--background] hover:text-[--foreground] text-center">
           <DropdownMenu nameDropdown="مسارات التعلم" items={items} />
         </li>
-        <NavItem link="/">الباقات</NavItem>
+        <NavItem link="/Packages">الباقات</NavItem>
         <NavItem link="/">الحصص المباشرة</NavItem>
         <NavItem link="/AllCourses">الدورات</NavItem>
         <NavItem link="/Capabilities">القدرات</NavItem>

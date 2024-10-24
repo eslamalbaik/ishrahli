@@ -30,10 +30,11 @@ export default function Home() {
         </MainLayout>
     );
 }
-// الرئيسية (Al-Raisia) - Home page 
-// حساب جديد (Hisab Jadid) - New Account
-// تسجيل الدخول (Tasjil Al-Dukhul) - Login
-// الطالب (Al-Talib) - Student
+// الرئيسية (Al-Raisia) - Home page  ****** Done
+// حساب جديد (Hisab Jadid) - New Account  ****** Done
+// تسجيل الدخول (Tasjil Al-Dukhul) - Login  ****** Done
+// الطالب (Al-Talib) - Student  ****** Done
+// الدورات (Al-Dawrat) - Courses   ****** Done
 // مرحلة التأسيس (Marhalat Al-Tasis) - Foundation Stage
 // المرحلة الابتدائية (Al-Marhala Al-Ibtidaiya) - Primary Stage
 // المرحلة المتوسطة (Al-Marhala Al-Mutawasita) - Intermediate Stage
@@ -41,8 +42,6 @@ export default function Home() {
 // المذكرات (Al-Mudhakkirat) - Memoranda/Notes
 // الباقات (Al-Baqat) - Packages
 // الحصص المباشرة (Al-Hisas Al-Mubashira) - Live Sessions
-// الدورات (Al-Dawrat) - Courses
 // القدرات (Al-Qudurat) - Abilities/Aptitudes
 // السلة (Al-Salla) - Cart
 // صفحة الدفع (Safhat Al-Daf') - Payment Page
-// حمل التطبيق الخاص بنا (Hammil Al-Tatbiq Al-Khas Bina) - Download Our App

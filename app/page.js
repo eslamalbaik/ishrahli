@@ -14,18 +14,17 @@ const BestNotes = dynamic(() =>
 const BestPackages = dynamic(() =>
     import("./Components/Home/Packages/BestPackages")
 );
-const Reviews = dynamic(() => import("./Components/Home/Reviews/Reviews"), {
-    ssr: false,
-});
+const Reviews = dynamic(() => import("./Components/Home/Reviews/Reviews"));
 export default function Home() {
     return (
         <MainLayout>
             <Hero/>
-            <Features/>
-            <AllCourses/>
+            {/* <Features/> */}
+            {/* <AllCourses/>
             <BestNotes/>
-            <BestPackages/>
-            <Reviews/>
+            <BestPackages/> 
+            <Reviews/>*/}
+            <BeTeacher/>
             <Contact/>
         </MainLayout>
     );
@@ -35,7 +34,7 @@ export default function Home() {
 // تسجيل الدخول (Tasjil Al-Dukhul) - Login  ****** Done
 // الطالب (Al-Talib) - Student  ****** Done
 // الدورات (Al-Dawrat) - Courses   ****** Done
-// مرحلة التأسيس (Marhalat Al-Tasis) - Foundation Stage
+// مرحلة التأسيس (Marhalat Al-Tasis) - FoundationStage
 // المرحلة الابتدائية (Al-Marhala Al-Ibtidaiya) - Primary Stage
 // المرحلة المتوسطة (Al-Marhala Al-Mutawasita) - Intermediate Stage
 // المرحلة الثانوية (Al-Marhala Al-Thanawiya) - Secondary Stage

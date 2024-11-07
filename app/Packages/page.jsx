@@ -47,7 +47,7 @@ const Page = () => {
     <MainLayout>
       <section className="w-full md:mt-24  sm:mt-24 h-full bg-[#f3f3f3ec] py-6 px-4 md:py-12 md:px-8 lg:py-24 lg:px-16 text-[--background] font-[family-name:var(--font-Cairo-Medium)]">
         <div className="flex flex-col md:flex-row md:justify-center">
-          <div className="w-full md:w-1/4 lg:w-1/5 flex flex-col  gap-4 py-6">
+          <div className="w-full md:w-1/5 lg:w-1/3  flex flex-col  gap-4 py-6">
             {/* Filter for stage */}
             <div>
               <h3 className="font-bold mb-2">المرحلة:</h3>

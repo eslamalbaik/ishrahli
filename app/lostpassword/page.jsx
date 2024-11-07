@@ -46,9 +46,8 @@ const Page = () => {
           <FormProvider {...methods}>
           <form action="" onSubmit={handleSubmit} className="group">
             <InputFiled 
-            name="البريد الإلكتروني" 
-            namelabel="email"
-            nameplaceholder="البريد الإلكتروني"
+            name="email" 
+            namelabel="البريد الإلكتروني"
             type="email"
             maxLength={25} 
              pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$"

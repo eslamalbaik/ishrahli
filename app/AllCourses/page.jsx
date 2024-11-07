@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import MainLayout from "../MainLayout/MainLayout";
 import  CourseCard from "../Components/CourseCard";
 import {CardsData} from '../data/data'
+import CardCourses from "./CardCourses";
 const Page = () => { 
   const [filter, setFilter] = useState(null); 
   const filterCourses = (subject) => {
@@ -12,8 +13,8 @@ const Page = () => {
 
   return (
     <MainLayout>
-      <section className="w-full h-full bg-[#f3f3f3ec] py-24 px-12  md:py-36 md:px-24   text-[--background] font-[family-name:var(--font-Cairo-Medium)]">
-        <h1 className="text-[24px] md:text-[22px] border-b-[3px] border-[--foreground] font-[family-name:var(--font-Cairo-Bold)]">
+      <section className="w-full  bg-[#f3f3f3ec] py-24 px-12  md:py-36 md:px-24   text-[--background] ">
+        <h1 className="text-[24px] max-w-[142px] md:text-[22px] border-b-[3px] border-[--foreground]">
           جميع الكورسات
         </h1>
         <div>
@@ -27,11 +28,11 @@ const Page = () => {
               {/* إضافة المزيد من الأزرار لباقي المواد */}
             </div>
             <div className="grid grid-cols-4 gap-y-6 pt-12">
-            {filteredCourses.map(({ id, name, rating, salary, url }) => (
-              <CourseCard
+            {filteredCourses.map(({ id, name,  salary,oldPrice, url }) => (
+              <CardCourses
                 key={id}
                 name={name}
-                rating={rating}
+                oldPrice={oldPrice}
                 salary={salary}
                 url={url}
               />

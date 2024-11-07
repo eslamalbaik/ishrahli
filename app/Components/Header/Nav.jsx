@@ -1,7 +1,7 @@
 "use client"; 
 import React, { useState ,useEffect} from "react";
 import dynamic from "next/dynamic";
-const DropdownMenu = dynamic(() => import('./DropdownMenu'));
+import DropdownMenu from './DropdownMenu';
 import { TiLockClosedMini, TiShoppingCartMini } from "../../lib/@react-icons";
 import NavItem from "./NavItem";
 import Link from "next/link";
@@ -16,38 +16,35 @@ const Nav = () => {
     }
   }, []);
 
-  const items = [
-    {
-      id: 0,
-      link: "level1",
-      namechildern: "مرحلة التأسيس",
-    },
-    {
-      id: 1,
-      link: "level2",
-      namechildern: "مرحلة الابتدائية",
-    },
-    {
-      id: 2, // Fixed the duplicate ID
-      link: "level3",
-      namechildern: "مرحلة الإعدادية",
-    },
-    {
-      id: 3, // Fixed the duplicate ID
-      link: "level4",
-      namechildern: "مرحلة الثانوية",
-    },
-  ];
+  const memoItems = {
+    "stages": {
+      "1": [ "المرحلة التأسيسية","المرحلة الابتدائية","المرحلة المتوسطة", "المرحلة الثانوية"],
+      "2":[ "المرحلة التأسيسية","المرحلة الابتدائية","المرحلة المتوسطة", "المرحلة الثانوية"],
+    }
+  };
+  
   return (
     <div className="hidden h-[100px] w-fit min-[1200px]:flex">
       <ul className="text-[--background] flex space-x-4 md:space-x-6 items-center text-[16px] md:text-[18px] leading-5 md:leading-6 font-normal">
         <NavItem AddclassName="ml-4" link="/">الرئيسية</NavItem>
         <li className="text-[--background] hover:text-[--foreground] text-center border-b-2 md:border-b-0">
-          <DropdownMenu nameDropdown="المذكرات" items={items} />
-        </li>
-        <li className="text-[--background] hover:text-[--foreground] text-center">
-          <DropdownMenu nameDropdown="مسارات التعلم" items={items} />
-        </li>
+        <DropdownMenu
+          nameDropdown="الطالب"
+          items={memoItems.stages["1"].map((level) => ({
+            namechildern: level,
+            link: `1/${level}`
+          }))}
+        />
+      </li>
+      <li className="text-[--background] hover:text-[--foreground] text-center">
+        <DropdownMenu
+          nameDropdown="المذكرات"
+          items={memoItems.stages["2"].map((level) => ({
+            namechildern: level,
+            link: `2/${level}`
+          }))}
+        />
+      </li>
         <NavItem link="/Packages">الباقات</NavItem>
         <NavItem link="/">الحصص المباشرة</NavItem>
         <NavItem link="/AllCourses">الدورات</NavItem>
@@ -59,7 +56,6 @@ const Nav = () => {
         </li>
         {isLoggedIn ? (
           <li className="text-center">
-            {/* <button  onClick={handleLogout}  className="hover:text-[--foreground]">    </button>*/}
               <Link href='/MyAccount'>حسابي</Link>
           </li>
         ) : (
@@ -74,7 +70,7 @@ const Nav = () => {
             </li>
             <li className="text-center">
               <ButtonOutline
-                textinner="اشترك الآن"
+                textinner="حساب جديد"
                 nameLink="/register"
                 ClassNameAdd="transition-all p-2 hover:text-white delay-100 text-[14px] md:text-[17px]"
               />

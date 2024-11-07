@@ -1,4 +1,5 @@
 import { FiMenu as FiMenuMini } from "react-icons/fi";
+import { BsChevronDown as BsChevronDownMini } from "react-icons/bs";
 
 import { MdOutlineClose as MdOutlineCloseMini } from "react-icons/md";
 import {
@@ -25,6 +26,8 @@ import { BiSolidBrain as BiSolidBrainMini,
     BiCartAdd as BiCartAddMini
  } from "react-icons/bi";
 import { PiStudentBold as PiStudentBoldMini } from "react-icons/pi";
+import { RiArrowLeftWideFill  as RiArrowLeftWideFillMini} from "react-icons/ri";
+import { AiOutlineArrowLeft as AiOutlineArrowLeftMini  } from "react-icons/ai";
 
 export {
   FiMenuMini,
@@ -43,5 +46,8 @@ export {
   BiCartAddMini,
   TiLockClosedMini,
   FaRegEye1Mini,
-  FaEyeSlashMini
+  FaEyeSlashMini,
+  BsChevronDownMini,
+  RiArrowLeftWideFillMini,
+  AiOutlineArrowLeftMini
 };

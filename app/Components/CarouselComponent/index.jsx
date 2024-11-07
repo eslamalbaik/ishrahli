@@ -37,7 +37,7 @@ function CarouselComponent({ sliderImageUrl, title }) {
                             {imageUrl.name}
                         </h3>
                         <div className="text-sm md:text-base text-[#595C5F] font-light mb-4 flex justify-end items-end">
-                            <p className="text-xl text-yellow-400">4.5</p>{" "}
+                            <p className="text-xl text-yellow-400">4.5</p>
                             <Rating rating={4.5} />
                         </div>
                         <div className="flex justify-between items-center">

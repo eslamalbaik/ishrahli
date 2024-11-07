@@ -1,9 +1,10 @@
 "use client";
 import React, { useState } from "react";
 import Link from "next/link";
-import  CountrySelector from "../Components/CitySelector"
-import InputField from "../Components/InputField"
+import InputField from "../Components/InputField";
 import { useForm, FormProvider, Controller } from "react-hook-form";
+import SelectField from "../Components/SelectField";
+import countries from "../data/countries.json";
 
 const Page = () => {
   const methods = useForm(); // Create methods for useForm
@@ -20,7 +21,7 @@ const Page = () => {
   };
   const [country, setCountry] = useState(""); // State for country selection
   const styleInput =
-    "h-[45px] bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-500 placeholder-gray-300 valid:[&:not(:placeholder-shown)]:border-green-500 invalid:[&:not(:placeholder-shown):not(:focus)]:border-red-400 [&:not(:placeholder-shown):not(:focus):invalid~span]:block";
+    "h-[45px] w-full bg-[#7786f97a]   border border-gray-300 text-gray-900 text-base rounded-lg block  p-2.5 placeholder-gray-600";
 
   return (
     <div className="pt-32 py-24 px-24 font-[family-name:var(--font-Cairo-Medium)] bg-[#f3f3f3ec] ">
@@ -61,13 +62,18 @@ const Page = () => {
                 />
               </div>
               <div className="flex justify-center items-center gap-3 mt-4 ">
-                <div className="w-[500px]">
-                  <CountrySelector
-                    control={control} // Ensure to pass control if needed
-                    country={country}
-                    setCountry={setCountry} // Pass setter function
-                  />
-                </div>
+                <SelectField
+                  name="country"
+                  control={control}
+                  defaultValue="الكويت" // Default value is the country name
+                  label="اختر الدولة"
+                  options={countries} // Array of country objects
+                  placeholder="اختر دولة..."
+                  valueKey="name"
+                  labelKey="name"
+                  styleInput={`${styleInput} p-0 m-0 text-sm`} // Custom styles
+                />
+                <div className="w-[500px]"></div>
                 <InputField
                   name="رقم الهاتف"
                   nameplaceholder="رقم الهاتف بدون مقدمة الدولة"

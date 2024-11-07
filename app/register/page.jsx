@@ -86,7 +86,7 @@ const Page = () => {
       <section className="w-full py-6 px-4  md:px-12 lg:px-24 font-[family-name:var(--font-Cairo-Medium)] bg-[#f3f3f3ec]">
         <Breadcrumbs links={linksRegister} />
         <div className="flex flex-col items-center py-10 sm:justify-center">
-          <Logo classNameAdd="w-[200px] sm:w-[300px] mb-0 pb-0" />
+          <Logo classNameAdd="w-[550px]  mb-0 pb-0" />
           <div className="px-4 sm:px-6 py-6 bg-white shadow-md rounded-md sm:rounded-lg w-full max-w-[1000px]">
             <div className="flex flex-col sm:flex-row justify-between">
               <h4 className="text-start pb-6 sm:pb-12 text-xl sm:text-2xl text-[--background]">
